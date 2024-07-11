@@ -60,28 +60,8 @@ After starting the development server, you can access your portfolio at `http://
 
 Here's an overview of the project structure:
 
-nextjs-portfolio-p5/
-│
-├── components/
-│ ├── Contact.js # Contact section component
-│ ├── Hero.js # Hero section component
-│ ├── Navbar.js # Navigation bar component
-│ ├── P5Background.js # p5.js background component
-│ ├── P5Wrapper.js # p5.js wrapper component for client-side rendering
-│ └── Projects.js # Projects section component
-│
-├── pages/
-│ └── index.js # Main page component
-│
-├── public/ # Public assets
-│
-├── styles/
-│ └── globals.css # Global CSS styles
-│
-├── .gitignore # Git ignore file
-├── package.json # NPM package configuration
-├── README.md # Project README file
-└── tailwind.config.js # Tailwind CSS configuration
+![Screenshot 2024-07-11 at 11 16 49 AM](https://github.com/ROUSE-prog/NextPort/assets/52251052/f810feb0-4fe9-44e3-a66f-6aceb530ffc1)
+
 
 markdown
 Copy code
