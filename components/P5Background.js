@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 
 const P5Wrapper = dynamic(() => import('./P5Wrapper'), {

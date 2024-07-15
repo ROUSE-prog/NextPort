@@ -6,40 +6,37 @@ const P5Wrapper = () => {
 
   useEffect(() => {
     const sketch = (p) => {
-      let t = 0.0;
-      let vel = 0.2;
-      let num;
-      let magic = 0;
+      let hu = 0;
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight).parent(sketchRef.current);
+        p.createCanvas(p.windowWidth, p.windowHeight);
         p.colorMode(p.HSB, 255);
-        magic = p.random(255);
-        p.pixelDensity(2.8);
-        p.angleMode(p.DEGREES);
-        num = p.random(100000);
+        hu = p.random(255);
       };
 
       p.draw = () => {
-        p.randomSeed(num);
         p.background(10, 10);
-        p.stroke((magic + 60 + p.sin(p.frameCount / 30) * 120) % 255, 255, 255, 255);
-        ribon(p.width / 2, p.height / 2, p.width * 0.5);
-        t += vel;
+        p.stroke((hu + 120 + p.sin(p.frameCount / 60) * 120) % 255, 200, 255, 100);
+        p.strokeWeight(0.5);
+        p.translate(p.width / 2, p.height / 1.5 + p.sin(p.frameCount / 230) * 200);
+        branch(100 + p.sin(p.frameCount / 150) * 80);
       };
 
-      const ribon = (x, y, r) => {
-        p.push();
-        p.translate(x, y);
-        let a = 10;
-        let b = 2;
-        let delta = 100;
+      const branch = (len) => {
+        p.line(0, 0, 0, -len);
+        p.translate(0, -len);
 
-        for (let i = 0; i < 500; i++) {
-          let n = 20 * p.noise(i / 10);
-          let x = r * p.cos(n + a * i + t);
-          let y = r * p.sin(n + b * i + delta + t);
-          p.ellipse(x, p.random(y), 1);
+        p.push();
+        p.rotate(p.PI / 12 + p.sin(p.frameCount / 60));
+        if (len > 4) {
+          branch(len * 0.8);
+        }
+        p.pop();
+
+        p.push();
+        p.rotate(-p.PI / 4 + p.cos(p.frameCount / 50));
+        if (len > 4) {
+          branch(len * 0.6);
         }
         p.pop();
       };
@@ -49,7 +46,7 @@ const P5Wrapper = () => {
       };
     };
 
-    const p5Instance = new p5(sketch);
+    const p5Instance = new p5(sketch, sketchRef.current);
 
     return () => {
       p5Instance.remove();
