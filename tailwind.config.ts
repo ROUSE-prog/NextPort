@@ -7,14 +7,19 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    theme: {
+      extend: {
+        colors: {
+          background: '#F7F7F5',
+          accent: '#000000', // Black for text
+          lightText: '#9E9E9E', // For subtitles
+        },
       },
     },
-  },
-  plugins: [],
+  },    
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 };
 export default config;

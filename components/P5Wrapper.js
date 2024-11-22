@@ -15,9 +15,9 @@ const P5Wrapper = () => {
       };
 
       p.draw = () => {
-        p.background(10, 10);
-        p.stroke((hu + 120 + p.sin(p.frameCount / 60) * 120) % 255, 200, 255, 100);
-        p.strokeWeight(0.5);
+        p.background(10,10);
+        p.stroke((hu + 120 + p.sin(p.frameCount / 600) * 120) % 255, 200, 255, 100);
+        p.strokeWeight(1.5);
         p.translate(p.width / 2, p.height / 1.5 + p.sin(p.frameCount / 230) * 200);
         branch(100 + p.sin(p.frameCount / 150) * 80);
       };

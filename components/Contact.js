@@ -1,27 +1,20 @@
+import React from 'react';
+
 const Contact = () => {
-    return (
-      <section id="contact" className="h-screen flex items-center justify-center bg-primary text-white z-10">
-        <div className="max-w-md w-full">
-          <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-          <form>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Name</label>
-              <input type="text" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Email</label>
-              <input type="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Message</label>
-              <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4"></textarea>
-            </div>
-            <button type="submit" className="bg-accent hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send</button>
-          </form>
-        </div>
-      </section>
-    );
-  };
-  
-  export default Contact;
-  
+  return (
+    <div className="contact-container bg-amber-100 bg-opacity-50 py-12 px-6 text-center">
+      <h2 className="text-4xl font-bold mb-8 text-gray-900">Contact / Connect</h2>
+      <p className="text-lg text-gray-700 mb-8">
+        I'm always open to exciting projects, collaborations, or just a chat. Feel free to connect with me!
+      </p>
+      <a
+        href="mailto:steven@example.com"
+        className="inline-block bg-stone-800 bg-opacity-50 text-white py-3 px-6 rounded-lg shadow-md hover:bg-stone-500"
+      >
+        Email Me
+      </a>
+    </div>
+  );
+};
+
+export default Contact;
