@@ -4,27 +4,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  background-color: #f9fafb; /* Light gray background */
-  color: #1f2937; /* Dark gray text */
   overflow-x: hidden; /* Prevent horizontal scroll */
   margin: 0;
   padding: 0;
 }
 
 h1, h2 {
-  font-family: 'Georgia', serif;
+
   color: #1f2937; /* Dark gray */
 }
 
-nav a {
-  color: #1f2937; /* Dark gray */
+nav a { /* Dark gray */
   transition: color 0.3s;
 }
 
-nav a:hover {
-  color: #10b981; /* Emerald green */
-}
 
 .snap-container {
   display: flex;
@@ -49,7 +42,6 @@ nav a:hover {
 
 .project-card {
   
-  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
@@ -112,5 +104,5 @@ html, body, #__next {
 .welcome-text {
   font-size: 2rem;
   font-weight: bold;
-  color: #1f2937; /* Dark gray text */
+
 }

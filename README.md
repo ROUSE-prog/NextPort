@@ -1,6 +1,6 @@
 # Next.js Portfolio with p5.js Background
 
-Welcome to your dynamic and interactive portfolio built with Next.js and p5.js. This project demonstrates the seamless integration of p5.js animations within a modern React framework using Next.js.
+Welcome to your dynamic and interactive portfolio built with Next.js and p5.js. This project demonstrates the seamless integration of p5.js animations within a modern React framework using Next.js...
 
 ## Table of Contents
 
