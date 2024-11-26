@@ -10,7 +10,6 @@ const P5Wrapper = () => {
       let numParticles = 8000;
       let formationType = 0;
       let formations = [];
-      let transition = false;
       let t = 0;
 
       p.setup = () => {
@@ -112,7 +111,7 @@ const P5Wrapper = () => {
           this.maxSpeed = 20;
           this.maxForce = 2;
           this.color = p.color(0, 4, 0);
-          this.size = p.random(1, 4);
+          this.size = p.random(0.1, 4);
         }
 
         update() {

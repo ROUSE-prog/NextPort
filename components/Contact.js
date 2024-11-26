@@ -8,7 +8,7 @@ const Contact = () => {
         Im always open to exciting projects, collaborations, or just a chat. Feel free to connect with me!
       </p>
       <a
-        href="mailto:steven@example.com"
+        href="mailto:stevenr2049@gmail.com"
         className="inline-block bg-black bg-opacity-50 text-white py-3 px-6 rounded-lg shadow-md hover:bg-black hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group"
       >
         Email Me
