@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HomeIcon, BriefcaseIcon, PhoneIcon } from '@heroicons/react/outline'; // Import Heroicons
+import { HomeIcon, BriefcaseIcon, PhoneIcon, CodeIcon } from '@heroicons/react/outline'; // Import additional Heroicons
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-20 left-0 h-full w-64 bg-stone-100 bg-opacity-40 transform ${
+        className={`fixed top-20 left-0 h-full w-64 bg-glass  transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 z-40 text-stone-800`}
       >
@@ -40,25 +40,36 @@ const Navbar = () => {
           {/* Home Link */}
           <a
             href="#home"
-            className={`flex items-center text-lg font-semibold p-3 rounded-md hover:bg-stone-300 ${
+            className={`flex items-center text-lg font-semibold p-3 rounded-md hover:bg-stone-100 ${
               activeSection === 'home' ? 'bg-stone-300 text-stone-900' : ''
             }`}
             onClick={() => handleSectionClick('home')}
           >
             <HomeIcon className="w-6 h-6 mr-3" /> Home
           </a>
-          <hr className="border-stone-300" />
-          {/* Recent Work & Projects Link */}
+          <hr className="border-stone-200" />
+          {/* Recent Work Link */}
           <a
-            href="#combined-work"
-            className={`flex items-center text-lg font-semibold p-3 rounded-md hover:bg-stone-300 ${
-              activeSection === 'combined-work' ? 'bg-stone-300 text-stone-900' : ''
+            href="#recent-work"
+            className={`flex items-center text-lg font-semibold p-3 rounded-md hover:bg-stone-200 ${
+              activeSection === 'recent-work' ? 'bg-stone-300 text-stone-900' : ''
             }`}
-            onClick={() => handleSectionClick('combined-work')}
+            onClick={() => handleSectionClick('recent-work')}
           >
-            <BriefcaseIcon className="w-6 h-6 mr-3" /> Recent Work & Projects
+            <BriefcaseIcon className="w-6 h-6 mr-3" /> Recent Work
           </a>
-          <hr className="border-stone-300" />
+          <hr className="border-stone-200" />
+          {/* OpenProcessing Link */}
+          <a
+            href="#openprocessing"
+            className={`flex items-center text-lg font-semibold p-3 rounded-md hover:bg-stone-100 ${
+              activeSection === 'openprocessing' ? 'bg-stone-300 text-stone-900' : ''
+            }`}
+            onClick={() => handleSectionClick('openprocessing')}
+          >
+            <CodeIcon className="w-6 h-6 mr-3" /> OpenProcessing
+          </a>
+          <hr className="border-stone-200" />
           {/* Contact Link */}
           <a
             href="#contact"
@@ -69,7 +80,7 @@ const Navbar = () => {
           >
             <PhoneIcon className="w-6 h-6 mr-3" /> Contact
           </a>
-          <hr className="border-stone-300" />
+          <hr className="border-stone-200" />
         </nav>
       </div>
     </div>

@@ -8,7 +8,7 @@ const CombinedWork = ({ combinedWork }) => {
         {combinedWork.map((work, index) => (
           <div
             key={index}
-            className="work-card bg-white bg-opacity-10 rounded-lg shadow-md overflow-hidden hover:bg-black hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group"
+            className="work-card bg-black bg-opacity-40 rounded-lg shadow-md overflow-hidden hover:bg-black  hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group"
           >
             <img
               src={work.image}

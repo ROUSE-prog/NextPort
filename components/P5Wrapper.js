@@ -6,43 +6,153 @@ const P5Wrapper = () => {
 
   useEffect(() => {
     const sketch = (p) => {
-      let hu = 0;
+      let particles = [];
+      let numParticles = 8000;
+      let formationType = 0;
+      let formations = [];
+      let transition = false;
+      let t = 0;
 
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight);
-        p.colorMode(p.HSB, 255);
-        hu = p.random(255);
+        p.pixelDensity(3);
+        p.noStroke();
+
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle(p.random(p.width), p.random(p.height)));
+        }
+
+        formations = [
+          (i) => {
+            // Spiral
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 5);
+            let radius = p.map(i, 0, numParticles, 0, p.min(p.width, p.height) / 3);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Flower
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 8);
+            let radius = p.sin(4 * angle) * p.min(p.width, p.height) / 4;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Circle
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI);
+            let radius = p.min(p.width, p.height) / 3;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Heart
+            let angle = p.map(i, 0, numParticles, -p.PI, p.PI);
+            let x = 16 * Math.pow(p.sin(angle), 3);
+            let y =
+              13 * p.cos(angle) -
+              5 * p.cos(2 * angle) -
+              2 * p.cos(3 * angle) -
+              p.cos(4 * angle);
+            return p.createVector(p.width / 2 + x * 10, p.height / 2 - y * 10);
+          },
+          (i) => {
+            // Random Bezier Curve
+            let p0 = p.createVector(p.random(p.width), p.random(p.height));
+            let p1 = p.createVector(p.random(p.width), p.random(p.height));
+            let p2 = p.createVector(p.random(p.width), p.random(p.height));
+            let p3 = p.createVector(p.random(p.width), p.random(p.height));
+            let t = p.map(i, 0, numParticles, 0, 1);
+            let pos = cubicBezier(p0, p1, p2, p3, t);
+            return pos;
+          },
+        ];
+
+        setFormation();
       };
-      
+
       p.draw = () => {
-        p.background(250);
-        p.stroke((hu + 120 + p.sin(p.frameCount / 6000) * 120) % 255, 200, 255, 100);
-        p.strokeWeight(1.5);
-        p.translate(p.height / 2, p.height / 1.5 + p.sin(p.frameCount / 230) * 200);
-        branch(100 + p.sin(p.frameCount / 150) * 80);
+        p.background(251);
+
+        for (let particle of particles) {
+          particle.update();
+          particle.display();
+        }
+        t += 0.01;
       };
 
-      const branch = (len) => {
-        p.line(0, 0, 0, -len);
-        p.translate(0, -len);
-
-        p.push();
-        p.rotate(p.PI / 120 + p.sin(p.frameCount / 60));
-        if (len > 4) {
-          branch(len * 0.8);
-        }
-        p.pop();
-
-        p.push();
-        p.rotate(-p.PI / 4 + p.cos(p.frameCount / 60));
-        if (len > 8) {
-          branch(len * 0.6);
-        }
-        p.pop();
+      p.mousePressed = () => {
+        formationType = (formationType + 1) % formations.length;
+        setFormation();
       };
 
       p.windowResized = () => {
         p.resizeCanvas(p.windowWidth, p.windowHeight);
+        setFormation();
+      };
+
+      const setFormation = () => {
+        for (let i = 0; i < particles.length; i++) {
+          let target = formations[formationType](i);
+          particles[i].setTarget(target.x, target.y);
+        }
+      };
+
+      class Particle {
+        constructor(x, y) {
+          this.pos = p.createVector(x, y);
+          this.target = p.createVector(x, y);
+          this.vel = p5.Vector.random2D();
+          this.acc = p.createVector();
+          this.maxSpeed = 20;
+          this.maxForce = 2;
+          this.color = p.color(0, 4, 0);
+          this.size = p.random(1, 4);
+        }
+
+        update() {
+          let desired = p5.Vector.sub(this.target, this.pos);
+          let d = desired.mag();
+          let speed = this.maxSpeed;
+          if (d < 100) {
+            speed = p.map(d, 0, 100, 0, this.maxSpeed);
+          }
+          desired.setMag(speed);
+          let steer = p5.Vector.sub(desired, this.vel);
+          steer.limit(this.maxForce);
+
+          this.acc.add(steer);
+          this.vel.add(this.acc);
+          this.vel.limit(this.maxSpeed);
+          this.pos.add(this.vel);
+          this.acc.mult(0);
+
+          let speedMag = this.vel.mag();
+          let alpha = p.map(speedMag, 0, this.maxSpeed, 50, 255);
+          this.color.setAlpha(alpha);
+        }
+
+        display() {
+          p.fill(this.color);
+          p.ellipse(this.pos.x, this.pos.y, this.size);
+        }
+
+        setTarget(x, y) {
+          this.target = p.createVector(x, y);
+        }
+      }
+
+      const cubicBezier = (p0, p1, p2, p3, t) => {
+        let a = p0.copy().mult(Math.pow(1 - t, 3));
+        let b = p1.copy().mult(3 * t * Math.pow(1 - t, 2));
+        let c = p2.copy().mult(3 * Math.pow(t, 2) * (1 - t));
+        let d = p3.copy().mult(Math.pow(t, 3));
+        return a.add(b).add(c).add(d);
       };
     };
 

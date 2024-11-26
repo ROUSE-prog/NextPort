@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar';
 import P5Background from '../components/P5Background';
 import WelcomeContainer from '../components/WelcomeContainer';
-import AboutMe from '../components/AboutMe';
+import Openprocessing from '../components/Openprocessing';
 import CombinedWork from '../components/CombinedWork';
 import Contact from '../components/Contact';
 
@@ -11,15 +11,15 @@ export default function Home({ combinedWork }) {
       <Navbar />
       <P5Background />
       <div className="snap-container relative z-10">
-        {/* Welcome and About Me Intro Section */}
         <section id="welcome" className="snap-item animate-fadeIn">
           <WelcomeContainer />
         </section>
-        {/* Combined Recent Work and Projects Section */}
         <section id="combined-work" className="snap-item animate-fadeIn">
           <CombinedWork combinedWork={combinedWork} />
         </section>
-        {/* Contact/Connect Section */}
+        <section id="openprocessing">
+        <Openprocessing />
+      </section>
         <section id="contact" className="snap-item animate-fadeIn">
           <Contact />
         </section>

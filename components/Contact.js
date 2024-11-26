@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="contact-container bg-white bg-opacity-10 py-12 px-6 text-center">
+    <div className="contact-container bg-black bg-opacity-40 p-6 rounded-lg shadow-md text-stone-100 py-12 px-6 text-center">
       <h2 className="text-4xl font-bold mb-8 text-white">Contact / Connect</h2>
       <p className="text-lg text-white mb-8">
         I'm always open to exciting projects, collaborations, or just a chat. Feel free to connect with me!

@@ -27,12 +27,12 @@ const WelcomeContainer = () => {
 
   return (
     <div
-      className="welcome-container relative bg-white bg-opacity-10 py-12 px-6"
+      className="welcome-container relative bg-black bg-opacity-40 py-12 px-6"
       id="welcome"
     >
       {/* Welcome Heading */}
       <h2 className="text-4xl font-bold mb-8 text-white text-center">Welcome</h2>
-      <p className="text-lg text-white max-w-4xl mx-auto text-center mb-12">
+      <p className="text-lg text-stone-800 max-w-4xl mx-auto text-center mb-12">
         Hi, I'm Steven! A developer passionate about building dynamic, user-friendly, and visually engaging applications. Let's explore my capabilities and recent work.
       </p>
 
