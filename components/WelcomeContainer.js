@@ -1,5 +1,4 @@
 import React from 'react';
-import ArrowButton from './ArrowButton';
 
 const WelcomeContainer = () => {
   const capabilities = [
@@ -26,17 +25,14 @@ const WelcomeContainer = () => {
   ];
 
   return (
-    <div
-      className="welcome-container relative bg-black bg-opacity-40 py-12 px-6"
+    <section
+      className="welcome-container relative bg-black bg-opacity-0 py-12 px-6"
       id="welcome"
     >
-      {/* Welcome Heading */}
-      <h2 className="text-4xl font-bold mb-8 text-white text-center">Welcome</h2>
+      <h2 className="text-4xl font-bold mb-8 text-black text-center">Welcome</h2>
       <p className="text-lg text-stone-800 max-w-4xl mx-auto text-center mb-12">
         Hi, Im Steven! A developer passionate about building dynamic, user-friendly, and visually engaging applications. Lets explore my capabilities and recent work.
       </p>
-
-      {/* Capabilities Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {capabilities.map((capability, index) => (
           <div
@@ -52,9 +48,7 @@ const WelcomeContainer = () => {
           </div>
         ))}
       </div>
-
-      
-    </div>
+    </section>
   );
 };
 

@@ -18,6 +18,9 @@ nav a { /* Dark gray */
   transition: color 0.3s;
 }
 
+.section {
+  min-height: 100vh; /* Ensures each section takes up a full screen height */
+}
 
 .snap-container {
   display: flex;

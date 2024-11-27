@@ -1,15 +1,17 @@
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 import P5Background from '../components/P5Background';
 import WelcomeContainer from '../components/WelcomeContainer';
+import Playground from '../components/Playground';
 import Openprocessing from '../components/Openprocessing';
 import CombinedWork from '../components/CombinedWork';
 import Contact from '../components/Contact';
 
+
 export default function Home({ combinedWork }) {
   return (
     <div className="relative overflow-hidden">
-      <Navbar />
       <P5Background />
+     <Header />
       <div className="snap-container relative z-10">
         <section id="welcome" className="snap-item animate-fadeIn">
           <WelcomeContainer />
@@ -17,7 +19,10 @@ export default function Home({ combinedWork }) {
         <section id="combined-work" className="snap-item animate-fadeIn">
           <CombinedWork combinedWork={combinedWork} />
         </section>
-        <section id="openprocessing">
+        <section id="Playground" className="snap-item animate-fadeIn">
+        <Playground /> 
+        </section>
+        <section id="openprocessing" className="snap-item animate-fadeIn">
         <Openprocessing />
       </section>
         <section id="contact" className="snap-item animate-fadeIn">

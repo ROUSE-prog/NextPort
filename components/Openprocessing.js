@@ -1,41 +1,30 @@
 import React from 'react';
 
-const Openprocessing = () => {
-  const projects = [
-    {
-      title: 'Generative Art 1',
-      description: 'An interactive generative art experiment using p5.js.',
-      link: 'https://openprocessing.org/sketch/XXXXX',
-    },
-    {
-      title: 'Creative Coding 2',
-      description: 'A mesmerizing generative visual design.',
-      link: 'https://openprocessing.org/sketch/YYYYY',
-    },
-  ];
-
+const OpenProcessingSection = () => {
   return (
-    <div className="bg-gray-100 py-12 px-6">
-      <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">OpenProcessing</h2>
-      <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
-        Explore a collection of my generative art projects and creative coding experiments on OpenProcessing.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {projects.map((project, index) => (
-          <a
-            key={index}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
-            <p className="text-gray-600">{project.description}</p>
-          </a>
-        ))}
+    <section
+      id="openprocessing"
+      className="work-card bg-black bg-opacity-40 rounded-lg shadow-md overflow-hidden flex items-center justify-center py-3 px-4"
+    >
+      <div className="text-center max-w-3xl">
+        <h2 className="text-4xl font-bold text-white mb-6">
+          OpenProcessing
+        </h2>
+        <p className="text-lg text-white mb-6">
+          Explore my collection of generative art and creative coding
+          experiments on OpenProcessing.
+        </p>
+        <a
+          href="https://openprocessing.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-black bg-opacity-50 text-white py-3 px-5 rounded-lg shadow-md hover:bg-black hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group"
+        >
+          View My Work on OpenProcessing
+        </a>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Openprocessing;
+export default OpenProcessingSection;
