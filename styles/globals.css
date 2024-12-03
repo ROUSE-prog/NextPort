@@ -5,6 +5,7 @@
 
 body {
   overflow-x: hidden; /* Prevent horizontal scroll */
+  white-space: auto; /* Prevent wrapping of sections */
   margin: 0;
   padding: 0;
 }
@@ -19,7 +20,10 @@ nav a { /* Dark gray */
 }
 
 .section {
-  min-height: 100vh; /* Ensures each section takes up a full screen height */
+  display: inline-block; /* Keep sections inline for horizontal scrolling */
+  width: 100vw; /* Each section occupies the full width of the viewport */
+  height: 100vh; /* Each section occupies the full height of the viewport */
+  vertical-align: top; /* Align sections properly *//* Ensures each section takes up a full screen height */
 }
 
 .snap-container {

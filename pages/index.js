@@ -37,36 +37,23 @@ export async function getStaticProps() {
   const combinedWork = [
     {
       title: "Pat.Io",
-      type: "Web Application",
       image: "/images/patio.png",
+      liveSite: 'https://pat-io.netlify.app/',
+      description: 'Pat.io is an innovative AI-powered assistant designed to simplify Social Security processes. It offers multilingual support, accessibility features, and real-time updates. ', // URL of the live site
+  github: 'https://github.com/ROUSE-prog/pat.io'
     },
     {
       title: "Weatherware",
-      type: "Mobile Application",
       image: "/images/project2.png",
+      description: 'Weatherware is an innovative, user-friendly weather application designed with React.js. It provides users with real-time weather information based on the provided location, including temperature and weather conditions.',
+      liveSite: 'https://whatweatherware.netlify.app/', // URL of the live site
+  github: 'https://github.com/ROUSE-prog/React/tree/main/Weatherware'
     },
     {
       title: "Code Journal",
-      type: "Desktop Application",
       image: "/images/project3.png",
-    },
-    {
-      title: "Cat Fighter IV",
-      type: "API Service",
-      image: "/images/project4.png",
-    },
-    {
-      title: "Landing Page Redesign",
-      type: "UI/UX Design",
-      description: "Redesigned a client's landing page for improved user engagement.",
-      image: "/images/recent1.png",
-    },
-    {
-      title: "OpenProcessing Generative Art",
-      type: "Creative Coding",
-      description: "A collection of generative art experiments and creative coding projects.",
-      image: "/images/openprocessing.png",
-      link: "https://openprocessing.org/user/320947/?view=activity&o=18",
+      description: 'This project aims to create an AI-powered documentation tracker that integrates with IDEs, summarizes code documentation, and displays it in a journal format on a web UI.',
+  github: 'https://github.com/ROUSE-prog/code-journal'
     },
   ];
 
