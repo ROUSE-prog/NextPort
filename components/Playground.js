@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
 
 const Playground = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [showMessage, setShowMessage] = useState(true); // Track if the message should be displayed
 
   const handleClick = () => {
-    setIsClicked(true);
-
-    // Reset the animation after it's complete
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 300); // Animation duration (adjust if needed)
+    setShowMessage(false); // Hide the message on click
   };
 
   return (
     <section
       id="playground"
-      className="flex items-center justify-center h-screen"
+      className="playground-container relative flex items-center justify-center h-screen text-white"
+      onClick={handleClick} // Handle click to hide message
     >
-      <button
-        onClick={handleClick}
-        className={`w-6 h-5 bg-gradient-to-r hover:from-sky-500 hover:to-orange-200 rounded-md ${
-          isClicked ? 'animate-pulse' : ''
-        }`}
-        style={{
-          transition: 'transform 0.1s ease',
-          transform: isClicked ? 'scale(1.5)' : 'scale(1)',
-        }}
-      ></button>
+      {/* Text Message */}
+      {showMessage && (
+        <div
+          className={`absolute top-1/2 transform -translate-y-1/2 text-center text-lg px-6 py-3 bg-sky-700 bg-opacity-40 rounded-sm hover:bg-sky-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group transition-opacity duration-500 ${
+            !showMessage ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          Click the screen to see code generate art
+        </div>
+      )}
+
+      {/* Main Interactive Area */}
+      <div className="art-container w-full h-full">
+        {/* Add your code to generate art here */}
+        <p className="text-center">[Your code-generated art will appear here.]</p>
+      </div>
     </section>
   );
 };
