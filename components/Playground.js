@@ -20,7 +20,7 @@ const Playground = () => {
             !showMessage ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          Click the screen to see code generate art
+          Click this imaginary container to see code generate art !
         </div>
       )}
 
