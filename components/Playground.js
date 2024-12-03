@@ -19,7 +19,7 @@ const Playground = () => {
     >
       <button
         onClick={handleClick}
-        className={`w-6 h-5 bg-gradient-to-r hover:from-stone-500 hover:to-orange-200 rounded-md ${
+        className={`w-6 h-5 bg-gradient-to-r hover:from-sky-500 hover:to-orange-200 rounded-md ${
           isClicked ? 'animate-pulse' : ''
         }`}
         style={{

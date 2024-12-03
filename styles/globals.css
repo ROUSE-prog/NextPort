@@ -4,15 +4,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  white-space: auto; /* Prevent wrapping of sections */
-  margin: 0;
-  padding: 0;
+  overflow-y: hidden; /* Disable vertical scrolling */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex;
+  flex-direction: row;
 }
+
+h2 {
+  font-size: 2.5rem; /* Adjust as needed */
+}
+
 
 h1, h2 {
 
-  color: #1f2937; /* Dark gray */
+  color: #358bc0; /* Dark gray */
 }
 
 nav a { /* Dark gray */
@@ -101,7 +108,7 @@ html, body, #__next {
 }
 
 .welcome-container {
-  border-radius: 8px;
+ 
   padding: 2rem;
   text-align: center;
   max-width: 600px;
@@ -109,7 +116,49 @@ html, body, #__next {
 }
 
 .welcome-text {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
 
+}
+
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pulse {
+  animation: buttonPress 0.3s ease-in-out;
+}
+
+@keyframes slide-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 1s infinite;
+}
+
+@keyframes slide-right {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-slide-right {
+  animation: slide-right 1s infinite;
 }
