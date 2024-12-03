@@ -22,7 +22,7 @@ const WelcomeContainer = () => {
 
   return (
     <section
-      className="welcome-container bg-sky-700 bg-opacity-40 items-center rounded-sm shadow-md overflow-hidden hover:bg-sky-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group py-16 px-8 text-center"
+      className="welcome-container bg-stone-700 bg-opacity-40 items-center rounded-sm shadow-md overflow-hidden hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group py-16 px-8 text-center"
       id="welcome"
     >
       {/* Intro Section */}

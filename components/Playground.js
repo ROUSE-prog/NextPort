@@ -16,7 +16,7 @@ const Playground = () => {
       {/* Text Message */}
       {showMessage && (
         <div
-          className={`absolute top-1/2 transform -translate-y-1/2 text-center text-lg px-6 py-3 bg-sky-700 bg-opacity-40 rounded-sm hover:bg-sky-900 hover:bg-opacity-80 hover:scale-105 hover:transition-transform hover:duration-300 ease-in-out hover:shadow-lg group transition-opacity duration-500 ${
+          className={`absolute top-1/2 transform -translate-y-1/2 text-center text-lg px-6 py-3 bg-stone-700 bg-opacity-40 rounded-sm hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 hover:transition-transform hover:duration-300 ease-in-out hover:shadow-lg group transition-opacity duration-500 ${
             !showMessage ? 'opacity-0' : 'opacity-100'
           }`}
         >
