@@ -3,7 +3,6 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-/* Base styles */
 body {
   overflow-y: hidden; /* Disable vertical scrolling */
   overflow-x: auto; /* Allow horizontal scrolling */
@@ -11,38 +10,29 @@ body {
   width: 100vw; /* Full viewport width */
   display: flex;
   flex-direction: row;
-  font-family: 'Inter', sans-serif;
-}
-
-/* Headings */
-h1, h2 {
-  color: #358bc0; /* Primary color */
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
   font-size: 2.5rem; /* Adjust as needed */
 }
 
-/* Navigation links */
+h1, h2 {
+  color: #358bc0; /* Dark gray */
+}
+
 nav a {
-  color: #222; /* Dark gray */
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s;
 }
 
-nav a:hover, nav a:focus {
-  color: #358bc0; /* Primary hover color */
-  outline: 2px solid #ffbf47; /* Accessibility focus ring */
-}
-
-/* Section layout */
 .section {
-  display: inline-block; /* Inline for horizontal scrolling */
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  vertical-align: top;
+  display: inline-block; /* Keep sections inline for horizontal scrolling */
+  width: 100vw; /* Each section occupies the full width of the viewport */
+  height: 100vh; /* Each section occupies the full height of the viewport */
+  vertical-align: top; /* Align sections properly */
 }
 
-/* Snap scrolling for sections */
 .snap-container {
   display: flex;
   overflow-x: scroll;
@@ -60,7 +50,6 @@ nav a:hover, nav a:focus {
   justify-content: center;
 }
 
-/* Projects container */
 .projects-container {
   padding: 2rem;
 }
@@ -75,51 +64,6 @@ nav a:hover, nav a:focus {
   transform: translateY(-5px);
 }
 
-/* Utility classes */
-.fixed {
-  position: fixed;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.z-0 {
-  z-index: 0;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.left-0 {
-  left: 0;
-}
-
-/* Ensuring height for Next.js root elements */
-html, body, #__next {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Welcome section */
 .welcome-container {
   padding: 2rem;
   text-align: center;
@@ -132,7 +76,6 @@ html, body, #__next {
   font-weight: bold;
 }
 
-/* Animations */
 @keyframes buttonPress {
   0% {
     transform: scale(1);
@@ -149,19 +92,6 @@ html, body, #__next {
   animation: buttonPress 0.3s ease-in-out;
 }
 
-@keyframes slide-left {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-10px);
-  }
-}
-
-.animate-slide-left {
-  animation: slide-left 1s infinite;
-}
-
 @keyframes slide-right {
   0%, 100% {
     transform: translateX(0);
@@ -175,38 +105,56 @@ html, body, #__next {
   animation: slide-right 1s infinite;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   body {
-    overflow-x: hidden; /* Disable horizontal scrolling on larger screens */
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  nav a {
+    font-size: 0.875rem; /* Smaller text for navigation */
+  }
+
+  .snap-container {
+    flex-direction: column; /* Ensure vertical alignment on smaller screens */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-item {
+    flex: 0 0 auto; /* Adjust for vertical scrolling */
+    width: 100%; /* Full width for each section */
+    height: auto; /* Adjust height for content */
+    padding: 1rem;
   }
 
   .welcome-container {
-    padding: 4rem;
-    max-width: 800px;
+    max-width: 90%;
+    margin: 1rem auto;
+    padding: 1rem;
   }
 
   h1, h2 {
-    font-size: 3rem;
+    font-size: 1.75rem; /* Reduce heading size on smaller screens */
   }
 
   .project-card {
-    max-width: 400px;
-    margin: auto;
+    margin: 0 auto;
+    width: 90%; /* Adjust card width for smaller screens */
   }
 }
 
-@media (max-width: 767px) {
-  nav a {
-    font-size: 1rem; /* Adjust for smaller screens */
-  }
-
+@media (min-width: 769px) and (max-width: 1024px) {
   .welcome-container {
-    padding: 1.5rem;
-    max-width: 90%;
+    max-width: 80%;
+    margin: 2rem auto;
   }
 
-  h1, h2 {
-    font-size: 2rem;
+  .snap-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
 }
