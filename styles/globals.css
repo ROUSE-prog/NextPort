@@ -10,8 +10,6 @@ body {
   width: 100vw; /* Full viewport width */
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 h2 {
@@ -76,6 +74,16 @@ nav a {
   font-weight: bold;
 }
 
+.header-image {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  padding: 0.5rem; /* Add spacing around the image */
+  background-color: #fff; /* Optional: Add a background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
 @keyframes buttonPress {
   0% {
     transform: scale(1);
@@ -108,9 +116,14 @@ nav a {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   body {
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    flex-direction: row; /* Horizontal scrolling on mobile */
+    align-items: start;
+  }
+
+  .header-image {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem;
   }
 
   nav a {
@@ -118,16 +131,15 @@ nav a {
   }
 
   .snap-container {
-    flex-direction: column; /* Ensure vertical alignment on smaller screens */
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
+    flex-direction: row; /* Keep sections in horizontal layout */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
 
   .snap-item {
-    flex: 0 0 auto; /* Adjust for vertical scrolling */
-    width: 100%; /* Full width for each section */
-    height: auto; /* Adjust height for content */
+    flex: 0 0 100%;
+    height: auto;
+    width: 100vw; /* Ensure full width for each section */
     padding: 1rem;
   }
 
