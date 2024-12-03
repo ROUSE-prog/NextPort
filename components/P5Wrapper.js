@@ -70,8 +70,148 @@ const P5Wrapper = () => {
             let pos = cubicBezier(p0, p1, p2, p3, t);
             return pos;
           },
+          (i) => {
+            // Wave
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 + p.sin(x / 50) * 100;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Grid
+            let cols = Math.floor(p.sqrt(numParticles));
+            let rows = Math.floor(p.sqrt(numParticles));
+            let x = (i % cols) * (p.width / cols);
+            let y = Math.floor(i / cols) * (p.height / rows);
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Star
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI);
+            let radius =
+              i % 2 === 0
+                ? p.min(p.width, p.height) / 4
+                : p.min(p.width, p.height) / 8;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Infinity Symbol
+            let t = p.map(i, 0, numParticles, -p.PI, p.PI);
+            let x = 200 * p.sin(t);
+            let y = 100 * p.sin(2 * t);
+            return p.createVector(p.width / 2 + x, p.height / 2 + y);
+          },
+          (i) => {
+            // Diamond
+            let cols = Math.ceil(p.sqrt(numParticles));
+            let rows = Math.ceil(p.sqrt(numParticles));
+            let x = (i % cols) * (p.width / cols);
+            let y =
+              Math.abs(p.width / 2 - x) + Math.floor(i / cols) * (p.height / rows);
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Helix
+            let zOffset = i % 20;
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI);
+            let radius = p.min(p.width, p.height) / 3;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle - zOffset)
+            );
+          },
+          (i) => {
+            // Triangle
+            let level = Math.floor(Math.sqrt(2 * i));
+            let positionInLevel = i - (level * (level - 1)) / 2;
+            let x =
+              (positionInLevel - level / 2) * (p.width / (level + 1)) + p.width / 2;
+            let y = level * (p.height / 15) + p.height / 4;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Hexagon
+            let angle = p.map(i % 6, 0, 6, 0, p.TWO_PI);
+            let radius = p.map(Math.floor(i / 6), 0, numParticles / 6, 50, 300);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Sine Wave Cluster
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 + p.sin(x / 20 + i * 0.1) * 100;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Zigzag
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y =
+              p.height / 2 + (i % 2 === 0 ? -1 : 1) * 50 * (1 - Math.abs(x / p.width));
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Square Spiral
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 5);
+            let radius = p.map(i, 0, numParticles, 0, p.min(p.width, p.height) / 3);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle) * p.sin(angle * 2),
+              p.height / 2 + radius * p.sin(angle) * p.cos(angle * 2)
+            );
+          },
+          (i) => {
+            // Concentric Circles
+            let circleNum = Math.floor(i / 100);
+            let radius = (circleNum + 1) * 50;
+            let angle = p.map(i % 100, 0, 100, 0, p.TWO_PI);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Starburst
+            let radius = p.map(i, 0, numParticles, 0, p.min(p.width, p.height) / 3);
+            let angle = i % 2 === 0 ? p.random(p.TWO_PI) : p.random(p.PI);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Clover
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 5);
+            let radius =
+              p.min(p.width, p.height) / 4 + p.sin(3 * angle) * p.min(p.width, p.height) / 8;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Expanding Rings
+            let ring = Math.floor(i / 50);
+            let angle = p.map(i % 50, 0, 50, 0, p.TWO_PI);
+            let radius = (ring + 1) * 30;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Tornado
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 3);
+            let heightOffset = p.map(i, 0, numParticles, -p.height / 2, p.height / 2);
+            let radius = p.min(p.width, p.height) / 4;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + heightOffset + radius * p.sin(angle)
+            );
+          },
         ];
-
         setFormation();
       };
 

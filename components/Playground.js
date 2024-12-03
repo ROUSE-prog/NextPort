@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Playground = () => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+
+    // Reset the animation after it's complete
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 300); // Animation duration (adjust if needed)
+  };
+
   return (
     <section
       id="playground"
-      className="inline-block  text-white py-3 px-6 rounded-lg shadow-md hover:bg-black hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group"
+      className="flex items-center justify-center h-screen"
     >
-      <div className="text-center">
-        
-        {/* <p className="text-lg text-gray-300">
-          A blank space for interactive creativity and exploration.
-        </p> */}
-      </div>
+      <button
+        onClick={handleClick}
+        className={`w-6 h-5 bg-gradient-to-r hover:from-stone-500 hover:to-orange-200 rounded-md ${
+          isClicked ? 'animate-pulse' : ''
+        }`}
+        style={{
+          transition: 'transform 0.1s ease',
+          transform: isClicked ? 'scale(1.5)' : 'scale(1)',
+        }}
+      ></button>
     </section>
   );
 };
