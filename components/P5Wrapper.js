@@ -251,7 +251,7 @@ const P5Wrapper = () => {
           this.maxSpeed = 20;
           this.maxForce = 2;
           this.color = p.color(100, 100, 200);
-          this.size = p.random(1, 4);
+          this.size = p.random(1, 3);
         }
 
         update() {

@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* Base styles */
 body {
   overflow-y: hidden; /* Disable vertical scrolling */
   overflow-x: auto; /* Allow horizontal scrolling */
@@ -10,29 +11,38 @@ body {
   width: 100vw; /* Full viewport width */
   display: flex;
   flex-direction: row;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Headings */
+h1, h2 {
+  color: #358bc0; /* Primary color */
 }
 
 h2 {
   font-size: 2.5rem; /* Adjust as needed */
 }
 
-
-h1, h2 {
-
-  color: #358bc0; /* Dark gray */
+/* Navigation links */
+nav a {
+  color: #222; /* Dark gray */
+  transition: color 0.3s ease-in-out;
 }
 
-nav a { /* Dark gray */
-  transition: color 0.3s;
+nav a:hover, nav a:focus {
+  color: #358bc0; /* Primary hover color */
+  outline: 2px solid #ffbf47; /* Accessibility focus ring */
 }
 
+/* Section layout */
 .section {
-  display: inline-block; /* Keep sections inline for horizontal scrolling */
-  width: 100vw; /* Each section occupies the full width of the viewport */
-  height: 100vh; /* Each section occupies the full height of the viewport */
-  vertical-align: top; /* Align sections properly *//* Ensures each section takes up a full screen height */
+  display: inline-block; /* Inline for horizontal scrolling */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  vertical-align: top;
 }
 
+/* Snap scrolling for sections */
 .snap-container {
   display: flex;
   overflow-x: scroll;
@@ -50,12 +60,12 @@ nav a { /* Dark gray */
   justify-content: center;
 }
 
+/* Projects container */
 .projects-container {
   padding: 2rem;
 }
 
 .project-card {
-  
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
@@ -65,6 +75,7 @@ nav a { /* Dark gray */
   transform: translateY(-5px);
 }
 
+/* Utility classes */
 .fixed {
   position: fixed;
 }
@@ -101,14 +112,15 @@ nav a { /* Dark gray */
   left: 0;
 }
 
+/* Ensuring height for Next.js root elements */
 html, body, #__next {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+/* Welcome section */
 .welcome-container {
- 
   padding: 2rem;
   text-align: center;
   max-width: 600px;
@@ -118,9 +130,9 @@ html, body, #__next {
 .welcome-text {
   font-size: 1rem;
   font-weight: bold;
-
 }
 
+/* Animations */
 @keyframes buttonPress {
   0% {
     transform: scale(1);
@@ -161,4 +173,40 @@ html, body, #__next {
 
 .animate-slide-right {
   animation: slide-right 1s infinite;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  body {
+    overflow-x: hidden; /* Disable horizontal scrolling on larger screens */
+  }
+
+  .welcome-container {
+    padding: 4rem;
+    max-width: 800px;
+  }
+
+  h1, h2 {
+    font-size: 3rem;
+  }
+
+  .project-card {
+    max-width: 400px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  nav a {
+    font-size: 1rem; /* Adjust for smaller screens */
+  }
+
+  .welcome-container {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  h1, h2 {
+    font-size: 2rem;
+  }
 }
