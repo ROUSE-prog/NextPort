@@ -10,13 +10,15 @@ body {
   width: 100vw; /* Full viewport width */
   display: flex;
   flex-direction: row;
+  align-items: center; /* Center content vertically */
 }
 
 h2 {
   font-size: 2.5rem; /* Adjust as needed */
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #358bc0; /* Dark gray */
 }
 
@@ -101,7 +103,8 @@ nav a {
 }
 
 @keyframes slide-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   50% {
@@ -116,8 +119,9 @@ nav a {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   body {
-    flex-direction: row; /* Horizontal scrolling on mobile */
+    flex-direction: column; /* Switch to vertical stacking for mobile */
     align-items: start;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
   .header-image {
@@ -131,15 +135,16 @@ nav a {
   }
 
   .snap-container {
-    flex-direction: row; /* Keep sections in horizontal layout */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    flex-direction: column; /* Stack sections vertically */
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory; /* Vertical snapping */
   }
 
   .snap-item {
     flex: 0 0 100%;
     height: auto;
-    width: 100vw; /* Ensure full width for each section */
+    width: 100%; /* Ensure full width for each section */
     padding: 1rem;
   }
 
@@ -149,7 +154,8 @@ nav a {
     padding: 1rem;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 1.75rem; /* Reduce heading size on smaller screens */
   }
 
@@ -160,15 +166,13 @@ nav a {
 }
 
 @media (min-width: 0px) and (max-width: 1024px) {
- /* Adjust container sizes for smaller screens */
-
   .welcome-container {
     padding: 2rem 1rem;
     text-align: center;
   }
 
   .welcome-container h1 {
-    font-size: 2rem; /* Smaller headline on mobile */
+    font-size: 2rem; /* Smaller headline on tablets */
   }
 
   .welcome-container p {
@@ -187,32 +191,30 @@ nav a {
     justify-content: center;
     align-items: flex-start; /* Align content at the top */
   }
-  .snap-container {
-    display: flex;
-    flex-direction: column; /* Vertical stacking for smaller screens */
-    height: auto; /* Adjust height for smaller screens */
-  }
-  
-  .snap-item {
-    width: 100%; /* Ensure full width */
-    height: auto; /* Adjust height */
-  }
 
   img {
     border-radius: 50%;
     margin: 1rem; /* Add space around the image */
     max-width: 50px; /* Restrict size on smaller screens */
   }
- 
-  button, svg {
+
+  button,
+  svg {
     touch-action: manipulation;
     padding: 1rem;
   }
-
-  body {
-    overflow-x: hidden;
-  }
-
-  
 }
 
+@media (min-width: 1025px) {
+  body {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-direction: row;
+  }
+
+  .header-image {
+    padding: 1rem;
+    max-width: 60px;
+    margin-right: 1rem; /* Ensure space between the icon and edges */
+  }
+}
