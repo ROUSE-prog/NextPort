@@ -46,7 +46,7 @@ export async function getStaticProps() {
       title: "Weatherware",
       image: "/images/project2.png",
       description: 'Weatherware is an user-friendly weather application designed with React.js. It provides users with real-time weather information based on the provided location, including temperature and weather conditions.',
-      liveSite: 'https://whatweatherware.netlify.app/', // URL of the live site
+      liveSite: 'https://whatweatherware.netlify.app/',
   github: 'https://github.com/ROUSE-prog/React/tree/main/Weatherware'
     },
     {

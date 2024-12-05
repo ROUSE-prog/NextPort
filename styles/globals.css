@@ -160,13 +160,59 @@ nav a {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+ /* Adjust container sizes for smaller screens */
+
   .welcome-container {
-    max-width: 80%;
-    margin: 2rem auto;
+    padding: 2rem 1rem;
+    text-align: center;
   }
 
-  .snap-container {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+  .welcome-container h1 {
+    font-size: 2rem; /* Smaller headline on mobile */
   }
+
+  .welcome-container p {
+    font-size: 0.9rem; /* Adjust paragraph font size */
+  }
+
+  .section {
+    padding: 1rem; /* Add padding for smaller devices */
+  }
+
+  .fixed {
+    margin-right: 1rem; /* Ensure spacing for fixed elements */
+  }
+
+  .snap-item {
+    justify-content: center;
+    align-items: flex-start; /* Align content at the top */
+  }
+  .snap-container {
+    display: flex;
+    flex-direction: column; /* Vertical stacking for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+  
+  .snap-item {
+    width: 100%; /* Ensure full width */
+    height: auto; /* Adjust height */
+  }
+
+  img {
+    border-radius: 50%;
+    margin: 1rem; /* Add space around the image */
+    max-width: 50px; /* Restrict size on smaller screens */
+  }
+ 
+  button, svg {
+    touch-action: manipulation;
+    padding: 1rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  
 }
+
