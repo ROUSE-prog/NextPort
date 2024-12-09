@@ -24,14 +24,14 @@ const WelcomeContainer = ({ activeTheme, setActiveTheme }) => {
             key={theme}
             className={`inline-block py-2 px-4 rounded-sm shadow-md font-semibold transition-all hover:scale-105 ${
               theme === 'theme-water'
-                ? 'bg-opacity-40 bg-gradient-to-r from-sky-300 to-indigo-900 hover:from-sky-400 hover:to-indigo-950'
+                ? 'bg-opacity-40 bg-gradient-to-r from-sky-500 hover:from-sky-700 '
                 : theme === 'theme-earth'
-                ? 'bg-opacity-40 bg-gradient-to-r from-green-700 to-stone-600 hover:from-green-600 hover:to-stone-700'
+                ? 'bg-opacity-40 bg-gradient-to-r from-green-700  hover:from-green-900 '
                 : theme === 'theme-air'
-                ? 'bg-opacity-40 bg-gradient-to-r from-slate-200 hover:from-slate-50 hover:text-slate-800'
+                ? 'bg-opacity-40 bg-gradient-to-r from-slate-200 hover:from-slate-400 hover:text-slate-800'
                 : theme === 'theme-fire'
-                ? ' bg-opacity-40 bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-800 hover:to-orange-400'
-                : ' bg-opacity-40 bg-gradient-to-r from-slate-60 to-amber-300 hover:bg-gradient-to-r  hover:from-teal-700'
+                ? ' bg-opacity-40 bg-gradient-to-r from-orange-500  hover:from-orange-800'
+                : ' bg-opacity-40 bg-gradient-to-r  from-slate-500  hover:from-amber-400'
             }`}
             onClick={() => changeTheme(theme)}
           >

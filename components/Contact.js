@@ -4,13 +4,13 @@ const Contact = ({ activeTheme }) => {
   const getButtonClasses = () => {
     switch (activeTheme) {
       case 'theme-water':
-        return 'bg-gradient-to-r bg-opacity-40 from-sky-300 to-indigo-900 hover:from-sky-400 hover:to-indigo-950';
+        return 'bg-opacity-40 bg-gradient-to-r bg-opacity-40 from-sky-300 to-indigo-900 hover:from-sky-400 hover:to-indigo-950';
       case 'theme-earth':
-        return 'bg-gradient-to-r bg-opacity-40 from-green-700 to-stone-600 hover:from-green-600 hover:to-stone-700';
+        return 'bg-opacity-40 bg-gradient-to-r bg-opacity-40 from-green-700 to-stone-600 hover:from-green-600 hover:to-stone-700';
       case 'theme-air':
-        return 'bg-gradient-to-r bg-opacity-40 from-slate-200 hover:from-slate-50 hover:text-slate-800';
+        return 'bg-opacity-40 bg-gradient-to-r bg-opacity-40 from-slate-200 hover:from-slate-50 hover:text-slate-800';
       case 'theme-fire':
-        return 'bg-gradient-to-r bg-opacity-40 from-orange-500 to-orange-700 hover:from-orange-800 hover:to-orange-400';
+        return 'bg-opacity-40 bg-gradient-to-r bg-opacity-40 from-orange-500 to-orange-700 hover:from-orange-800 hover:to-orange-400';
         case 'theme-ether':
           return ' bg-opacity-40 bg-gradient-to-r from-slate-60 to-amber-300 hover:bg-gradient-to-r  hover:from-teal-700';
       default:
