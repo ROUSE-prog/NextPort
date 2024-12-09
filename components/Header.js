@@ -1,100 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Header = () => {
-  const [activeSection, setActiveSection] = useState('welcome'); // Track active section
-
+const Header = ({ activeTheme }) => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(id); // Update active section
     }
   };
 
-  // Detect active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['welcome', 'combined-work', 'playground', 'openprocessing', 'contact'];
-      const offset = window.innerHeight / 3; // Adjust for when a section becomes active
-      let currentSection = activeSection;
+  // Map themes to their colors
+  const themeColors = {
+    'theme-water': 'bg-sky-400 border-sky-500',
+    'theme-earth': 'bg-green-600 border-green-500',
+    'theme-air': 'bg-slate-300 border-slate-400',
+    'theme-fire': 'bg-orange-600 border-orange-500',
+    'theme-ether': 'bg-purple-600 border-purple-500',
+  };
 
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= offset && rect.bottom >= offset) {
-            currentSection = id;
-          }
-        }
-      });
-
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  // Extract the active theme colors
+  const activeColor = themeColors[activeTheme] || 'bg-stone-600 border-stone-500';
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-glass bg-opacity-90 z-50 flex items-center px-4 py-3 lg:px-6 lg:py-4">
-      {/* GitHub Image Link */}
+    <header className="fixed top-4 w-full z-50 flex justify-center">
+      <div className="flex items-center justify-center mx-auto">
+        <nav className="flex space-x-4 lg:space-x-5 text-sm lg:text-base text-stone-800">
+          {[
+            { label: 'Home', id: 'welcome' },
+            { label: 'Work', id: 'combined-work' },
+            { label: 'Playground', id: 'playground' },
+            { label: 'OpenProcessing', id: 'openprocessing' },
+            { label: 'Contact', id: 'contact' },
+          ].map((link, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToSection(link.id)}
+              className="relative group transition-all duration-300 hover:text-stone-500"
+            >
+              {link.label}
+              {/* Dynamic Underline */}
+              <span
+                className={`absolute left-0 bottom-[-4px] h-[2px] w-0 ${activeColor} transition-all duration-300 group-hover:w-full`}
+              ></span>
+            </button>
+          ))}
+        </nav>
+      </div>
+      {/* Profile Icon with Dynamic Border */}
       <a
         href="https://linktr.ee/Misopear"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute right-4 lg:right-6"
-        aria-label="Link to Linktree"
+        className="absolute right-4 top-4 rounded-full h-12 w-12 shadow-lg overflow-hidden"
       >
         <img
-          src="https://avatars.githubusercontent.com/u/52251052?v=4" // Replace with your GitHub profile image URL
-          alt="GitHub Profile"
-          className="h-12 w-12 rounded-full shadow-md hover:scale-105 z-50 transition-transform duration-300"
+          src="https://avatars.githubusercontent.com/u/52251052?v=4" // Replace with your actual image URL
+          alt="Profile"
+          className={`rounded-full h-full w-full border-4 transition-all duration-300 ${activeColor}`}
         />
       </a>
-
-      {/* Centered Navigation */}
-      <nav className="flex space-x-4 lg:space-x-6 text-sm lg:text-base text-stone-800 mx-auto">
-        <button
-          onClick={() => scrollToSection('welcome')}
-          className={`hover:text-stone-500 ${
-            activeSection === 'welcome' ? 'font-bold text-black' : ''
-          }`}
-        >
-          Home
-        </button>
-        <button
-          onClick={() => scrollToSection('combined-work')}
-          className={`hover:text-stone-500 ${
-            activeSection === 'combined-work' ? 'font-bold text-black' : ''
-          }`}
-        >
-          Work
-        </button>
-        <button
-          onClick={() => scrollToSection('playground')}
-          className={`hover:text-stone-500 ${
-            activeSection === 'playground' ? 'font-bold text-black' : ''
-          }`}
-        >
-          Playground
-        </button>
-        <button
-          onClick={() => scrollToSection('openprocessing')}
-          className={`hover:text-stone-500 ${
-            activeSection === 'openprocessing' ? 'font-bold text-black' : ''
-          }`}
-        >
-          OpenProcessing
-        </button>
-        <button
-          onClick={() => scrollToSection('contact')}
-          className={`hover:text-stone-500 ${
-            activeSection === 'contact' ? 'font-bold text-black' : ''
-          }`}
-        >
-          Contact
-        </button>
-      </nav>
     </header>
   );
 };

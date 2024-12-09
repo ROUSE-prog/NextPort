@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* Base styles */
 body {
   overflow-y: hidden; /* Disable vertical scrolling */
   overflow-x: auto; /* Allow horizontal scrolling */
@@ -12,13 +13,10 @@ body {
   flex-direction: row; /* Horizontal layout */
 }
 
-h2 {
-  font-size: 2.5rem; /* Adjust as needed */
-}
-
 h1,
 h2 {
-  color: #358bc0; /* Dark gray */
+  font-size: 2.5rem; /* Adjust as needed */
+  color: #358bc0; /* Default color */
 }
 
 nav a {
@@ -140,6 +138,7 @@ nav a {
   }
 }
 
+/* Animations */
 @keyframes slide-right {
   0%,
   100% {
@@ -153,3 +152,83 @@ nav a {
 .animate-slide-right {
   animation: slide-right 1s infinite;
 }
+
+/* New Theme Support */
+body.theme-water {
+  background-color: #1e90ff; /* Blue water theme */
+  color: #ffffff;
+}
+
+body.theme-earth {
+  background-color: #2e8b57; /* Green earth theme */
+  color: #ffffff;
+}
+
+body.theme-air {
+  background-color: #87ceeb; /* Light blue air theme */
+  color: #ffffff;
+}
+
+body.theme-fire {
+  background-color: #dc143c; /* Red fire theme */
+  color: #ffffff;
+}
+
+body.theme-ether {
+  background-color: #4b0082; /* Indigo ether theme */
+  color: #ffffff;
+}
+
+.theme-button {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.theme-button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Ensure component alignment across all themes */
+.snap-item {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Different theme button colors */
+.theme-water {
+  background: linear-gradient(to right, #38bff86f, #1e3a8a6f); /* Water theme colors */
+  color: white;
+}
+
+.theme-earth {
+  background: linear-gradient(to right, #1665346f, #404040c5); /* Earth theme colors */
+  color: white;
+  
+}
+
+.theme-air {
+  background: linear-gradient(to right, #f1f5f96f, #1717176f ); /* Air theme colors */
+  color: #0d0d0d;
+}
+
+.theme-fire {
+  background: linear-gradient(to right, #ea580c6f, #9a34126f); /* Fire theme colors */
+  color: white;
+}
+
+.theme-ether {
+  background: linear-gradient(to right, #3b2f256f, #bd96186f); /* Ether theme colors */
+  color:white;
+}
+
+

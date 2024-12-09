@@ -7,7 +7,7 @@ const P5Wrapper = () => {
   useEffect(() => {
     const sketch = (p) => {
       let particles = [];
-      let numParticles = 8000;
+      let numParticles = 10000;
       let formationType = 0;
       let formations = [];
       let t = 0;
@@ -211,6 +211,99 @@ const P5Wrapper = () => {
               p.height / 2 + heightOffset + radius * p.sin(angle)
             );
           },
+          (i) => {
+            // Water Droplet
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI);
+            let radius = p.min(p.width, p.height) / 4;
+            let y = p.height / 2 + radius * p.sin(angle) * (1 - Math.abs(p.cos(angle)));
+            return p.createVector(p.width / 2 + radius * p.cos(angle), y);
+          },
+          (i) => {
+            // Mountain Peaks (Earth)
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 - Math.abs(p.sin(i / 10) * p.height / 4);
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Wind Swirl (Air)
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 3);
+            let radius = p.min(p.width, p.height) / 4;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle + i * 0.01),
+              p.height / 2 + radius * p.sin(angle + i * 0.01)
+            );
+          },
+          (i) => {
+            // Flame Spiral (Fire)
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 6);
+            let radius = i % 2 === 0 ? i * 2 : i * 1.5;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Ether Web
+            let t = i / numParticles;
+            let x = p.width / 2 + t * Math.sin(t * p.TWO_PI) * 200;
+            let y = p.height / 2 + t * Math.cos(t * p.TWO_PI) * 200;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Star Cluster
+            let radius = (i % 10 + 1) * 30;
+            let angle = p.map(i % 10, 0, 10, 0, p.TWO_PI);
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Aurora Borealis (Ether)
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 + p.sin(x / 50) * (i % 5 === 0 ? 150 : 100);
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Ocean Waves (Water)
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 + p.sin(x / 20) * 50;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Tornado (Fire and Air)
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 3);
+            let heightOffset = p.map(i, 0, numParticles, -p.height / 2, p.height / 2);
+            let radius = p.min(p.width, p.height) / 4;
+            return p.createVector(
+              p.width / 2 + radius * p.cos(angle),
+              p.height / 2 + heightOffset + radius * p.sin(angle)
+            );
+          },
+          (i) => {
+            // Floating Feathers (Air)
+            let x = p.map(i, 0, numParticles, 0, p.width);
+            let y = p.height / 2 + Math.sin(x / 100 + i * 0.01) * 100;
+            return p.createVector(x, y);
+          },
+          (i) => {
+            // Exploding Nova (Fire)
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI);
+            let radius = i % 2 === 0 ? i * 2 : i * 1.5;
+            return p.createVector(
+              p.width / 2 + radius * Math.cos(angle),
+              p.height / 2 + radius * Math.sin(angle)
+            );
+          },
+          (i) => {
+            // Galaxy Spiral (Ether)
+            let angle = p.map(i, 0, numParticles, 0, p.TWO_PI * 5);
+            let radius = p.map(i, 0, numParticles, 0, p.min(p.width, p.height) / 3);
+            return p.createVector(
+              p.width / 2 + radius * Math.cos(angle),
+              p.height / 2 + radius * Math.sin(angle)
+            );
+          },
         ];
         setFormation();
       };
@@ -222,11 +315,11 @@ const P5Wrapper = () => {
           particle.update();
           particle.display();
         }
-        t += 0.01;
+        t += 0.1;
       };
 
       p.mousePressed = () => {
-        formationType = (formationType + 1) % formations.length;
+        formationType = Math.floor(p.random(formations.length)); // Randomly select a formation
         setFormation();
       };
 
