@@ -13,7 +13,7 @@ const WelcomeContainer = ({ activeTheme, setActiveTheme }) => {
       id="welcome"
     >
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-white">Hi, I'm Steven!</h1>
+        <h1 className="text-4xl font-bold mb-6 text-white">Hi, Im Steven.</h1>
         <p className="text-lg text-stone-50 mb-6">
           I specialize in creating user-focused, visually stunning applications blending art and technology.
         </p>
@@ -22,16 +22,16 @@ const WelcomeContainer = ({ activeTheme, setActiveTheme }) => {
         {themes.map((theme) => (
           <button
             key={theme}
-            className={`inline-block py-2 px-4 rounded-sm shadow-md font-semibold transition-all hover:scale-105 ${
+            className={`inline-block py-2 px-4 bg-gradient-to-r from-stone-700 text-white rounded-sm shadow-md font-semibold transition-all hover:scale-105 ${
               theme === 'theme-water'
-                ? 'bg-opacity-40 bg-gradient-to-r from-sky-500 hover:from-sky-700 '
+                ? 'bg-opacity-40 bg-gradient-to-r  hover:from-sky-700 '
                 : theme === 'theme-earth'
-                ? 'bg-opacity-40 bg-gradient-to-r from-green-700  hover:from-green-900 '
+                ? 'bg-opacity-40 bg-gradient-to-r  hover:from-green-900 '
                 : theme === 'theme-air'
-                ? 'bg-opacity-40 bg-gradient-to-r from-slate-200 hover:from-slate-400 hover:text-slate-800'
+                ? 'bg-opacity-40 bg-gradient-to-r  hover:from-slate-400 hover:text-slate-800'
                 : theme === 'theme-fire'
-                ? ' bg-opacity-40 bg-gradient-to-r from-orange-500  hover:from-orange-800'
-                : ' bg-opacity-40 bg-gradient-to-r  from-slate-500  hover:from-amber-400'
+                ? ' bg-opacity-40 bg-gradient-to-r hover:from-orange-800'
+                : ' bg-opacity-40 bg-gradient-to-r  hover:from-amber-400 '
             }`}
             onClick={() => changeTheme(theme)}
           >

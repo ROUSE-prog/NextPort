@@ -29,7 +29,7 @@ const ThemeSelector = ({ activeTheme, setActiveTheme }) => {
                 ? 'hover:bg-gradient-to-r hover:from-slate-50 hover:text-slate-800'
                 : theme === 'theme-fire'
                 ? 'hover:bg-gradient-to-r hover:from-orange-800 hover:to-orange-400'
-                : 'hover:bg-gradient-to-r hover:from-slate-800 hover:to-amber-400'
+                : 'hover:bg-gradient-to-r  hover:from-sky-400 hover:to-indigo-950'
             }`}
             onClick={() => changeTheme(theme)}
           >

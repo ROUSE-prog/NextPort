@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; 
 
 const Header = ({ activeTheme }) => {
   const scrollToSection = (id) => {
@@ -14,7 +15,7 @@ const Header = ({ activeTheme }) => {
     'theme-earth': 'bg-green-600 border-green-500',
     'theme-air': 'bg-slate-300 border-slate-400',
     'theme-fire': 'bg-orange-600 border-orange-500',
-    'theme-ether': 'bg-purple-600 border-purple-500',
+    'theme-ether': 'bg-sky-400 border-sky-500',
   };
 
   // Extract the active theme colors
@@ -52,11 +53,13 @@ const Header = ({ activeTheme }) => {
         rel="noopener noreferrer"
         className="absolute right-4 top-4 rounded-full h-12 w-12 shadow-lg overflow-hidden"
       >
-        <img
-          src="https://avatars.githubusercontent.com/u/52251052?v=4" // Replace with your actual image URL
-          alt="Profile"
-          className={`rounded-full h-full w-full border-4 transition-all duration-300 ${activeColor}`}
-        />
+       <Image
+  src="https://avatars.githubusercontent.com/u/52251052?v=4"
+  alt="Profile"
+  width={48} // Adjust based on your requirements
+  height={48}
+  className="rounded-full shadow-lg border-2 border-green-500"
+/>
       </a>
     </header>
   );

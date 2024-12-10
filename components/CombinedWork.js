@@ -12,7 +12,7 @@ const CombinedWork = ({ combinedWork, activeTheme }) => {
       case 'theme-fire':
         return ' bg-opacity-40 bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-800 hover:to-orange-400';
       case 'theme-ether':
-        return ' bg-opacity-40 bg-gradient-to-r from-slate-60 to-amber-300 hover:bg-gradient-to-r  hover:from-teal-700';
+        return 'bg-opacity-40 bg-gradient-to-r bg-opacity-40 from-amber-400  hover:from-slate-500';
       default:
         return '';
     }
