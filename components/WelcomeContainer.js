@@ -28,7 +28,7 @@ const WelcomeContainer = ({ activeTheme, setActiveTheme }) => {
                 : theme === 'theme-earth'
                 ? 'bg-opacity-40 bg-gradient-to-r  hover:from-green-900 '
                 : theme === 'theme-air'
-                ? 'bg-opacity-40 bg-gradient-to-r  hover:from-slate-400 hover:text-slate-800'
+                ? 'bg-opacity-40 bg-gradient-to-r  hover:from-slate-800 hover:text-slate-400'
                 : theme === 'theme-fire'
                 ? ' bg-opacity-40 bg-gradient-to-r hover:from-orange-800'
                 : ' bg-opacity-40 bg-gradient-to-r  hover:from-amber-400 '
