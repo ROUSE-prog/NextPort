@@ -9,13 +9,13 @@ const WelcomeContainer = ({ activeTheme, setActiveTheme }) => {
 
   return (
     <section
-      className={`welcome-container bg-stone-700 bg-opacity-60 items-center rounded-sm shadow-md hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group py-16 px-8 text-center ${activeTheme}`}
+      className={`welcome-container bg-gradient-to-r from-[rgba(82,82,82,0.5)] to-[rgba(38,191,191,0.5)] bg-opacity-60 items-center rounded-sm shadow-md hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group py-16 px-8 text-center ${activeTheme}`}
       id="welcome"
     >
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-white">Hi, Im Steven.</h1>
         <p className="text-lg text-stone-50 mb-6">
-          I specialize in creating user-focused, visually stunning applications blending art and technology.
+          I specialize in creating user-focused, visually stunning applications blending art and technology. Choose a theme below to heighten your experience.
         </p>
       </div>
       <div className="flex justify-center flex-wrap gap-4 mt-6">

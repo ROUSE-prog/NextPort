@@ -23,7 +23,7 @@ const Contact = ({ activeTheme }) => {
   return (
     <section
       id="contact"
-      className={`bg-stone-700 bg-opacity-40 p-6 rounded-sm shadow-md text-stone-100 py-12 px-6 text-center max-w-2xl mx-auto my-12 hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
+      className={`bg-gradient-to-r from-[rgba(82,82,82,0.5)] to-[rgba(38,191,191,0.5)] bg-opacity-40 p-6 rounded-sm shadow-md text-stone-100 py-12 px-6 text-center max-w-2xl mx-auto my-12 hover:bg-stone-600 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
     >
       <h2 className="text-4xl font-bold mb-8 text-white">Contact / Connect</h2>
       <p className="text-lg text-white mb-8">
@@ -31,7 +31,7 @@ const Contact = ({ activeTheme }) => {
       </p>
       <a
   href="mailto:stevenr2049@gmail.com"
-  className={`inline-block py-2 px-4 rounded-sm shadow-md transition-all ${getButtonClasses()}`}
+  className={`inline-block py-2 px-4 rounded-sm shadow-md transition-all  bg-gradient-to-r text-white from-[rgba(30,152,152,0.5)] to-[rgba(144,89,59,0.5)] hover:from-stone-700 hover:to-teal-500 hover:bg-opacity-80 hover:scale-105 duration-300 ease-in-out hover:shadow-lg ${getButtonClasses()}`}
 >
   Email Me
 </a>

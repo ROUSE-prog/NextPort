@@ -16,7 +16,7 @@ const Playground = ({ activeTheme }) => {
       {/* Text Message */}
       {showMessage && (
         <div
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 rounded-sm shadow-md bg-opacity-60 text-stone-50 flex items-center justify-between gap-4 transition-opacity duration-300 ease-in-out hover:scale-105 hover:shadow-lg group ${
+          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 rounded-sm shadow-md bg-gradient-to-r text-white from-[rgba(30,152,152,0.5)] to-[rgba(144,89,59,0.5)] flex items-center justify-between gap-4 transition-opacity duration-300 ease-in-out hover:scale-105 hover:shadow-lg group ${
             !showMessage ? 'opacity-0' : 'opacity-100'
           } ${activeTheme}`}
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }} // Semi-transparent background

@@ -23,17 +23,17 @@ const OpenProcessing = ({ activeTheme }) => {
   return (
     <section
       id="openprocessing"
-      className={`work-card bg-stone-700 bg-opacity-40 p-6 rounded-sm shadow-md text-stone-100 py-12 px-6 text-center max-w-2xl mx-auto my-12 hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
+      className={`work-card bg-gradient-to-r from-[rgba(82,82,82,0.5)] to-[rgba(38,191,191,0.5)] bg-opacity-40 p-6 rounded-sm shadow-md text-stone-100 py-12 px-6 text-center max-w-2xl mx-auto my-12 hover:bg-stone-600 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
     >
-      <h2 className="text-4xl font-bold text-white mb-6">OpenProcessing</h2>
-      <p className="text-lg text-white mb-6">
+      <h2 className="text-4xl font-bold text-white mb-6 ">OpenProcessing</h2>
+      <p className="text-lg text-white mb-6 ">
         Explore my collection of generative art and creative coding experiments on OpenProcessing.
       </p>
       <a
   href="https://openprocessing.org/"
   target="_blank"
   rel="noopener noreferrer"
-  className={`inline-block py-2 px-4 rounded-sm shadow-md transition-all ${getButtonClasses()}`}
+  className={`inline-block py-2 px-4 rounded-sm shadow-md transition-all bg-gradient-to-r text-white from-[rgba(30,152,152,0.5)] to-[rgba(144,89,59,0.5)] hover:from-stone-700 hover:to-teal-500 hover:bg-opacity-80 hover:scale-105 duration-300 ease-in-out hover:shadow-lg ${getButtonClasses()}`}
 >
   View My Work on OpenProcessing
 </a>

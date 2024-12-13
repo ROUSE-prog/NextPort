@@ -29,7 +29,7 @@ const CombinedWork = ({ combinedWork, activeTheme }) => {
         {combinedWork.map((work, index) => (
           <div
             key={index}
-            className={`work-card bg-stone-700 bg-opacity-40 items-center rounded-sm shadow-md overflow-hidden hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
+            className={`work-card bg-gradient-to-r from-[rgba(82,82,82,0.5)] to-[rgba(38,191,191,0.5)] bg-opacity-40 items-center rounded-sm shadow-md overflow-hidden hover:bg-stone-900 hover:bg-opacity-80 hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-lg group ${activeTheme}`}
           >
             <div className="p-6 flex flex-col justify-between h-full">
               <div>
@@ -48,7 +48,7 @@ const CombinedWork = ({ combinedWork, activeTheme }) => {
                     href={work.liveSite}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-block bg-stone-700 py-2 px-4 rounded-sm shadow-md transition-all ${buttonClasses}`}
+                    className={`inline-block bg-gradient-to-r text-white from-[rgba(30,152,152,0.5)] to-[rgba(144,89,59,0.5)]  hover:from-[rgba(82,82,82,0.5)] hover:to-[rgba(38,191,191,0.5)] py-2 px-4 rounded-sm shadow-md transition-all ${buttonClasses}`}
                   >
                     Site
                   </a>
@@ -60,7 +60,7 @@ const CombinedWork = ({ combinedWork, activeTheme }) => {
                     href={work.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-block bg-stone-700 py-2 px-4 rounded-sm shadow-md transition-all ${buttonClasses}`}
+                    className={`inline-block bg-gradient-to-r text-white from-[rgba(30,152,152,0.5)] to-[rgba(144,89,59,0.5)]  hover:from-[rgba(82,82,82,0.5)] hover:to-[rgba(38,191,191,0.5)] py-2 px-4 rounded-sm shadow-md transition-all ${buttonClasses}`}
                   >
                     Code
                   </a>
